@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c12b1f82-144d-414f-bfa6-e78ac0706efb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select p.pid,p.Brand,p.pname,p.QType,p.price,p.discount,p.finalPrice,s.totalquantity,s.totalprice,bill_id,date from Product p join billinginfo s on p.pid=s.pid]]>
+	</queryString>
+	<field name="pid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Brand" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bill_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="finalPrice" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalquantity" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalprice" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<filterExpression><![CDATA[sum]]></filterExpression>
+	<group name="bill_id">
+		<groupExpression><![CDATA[$F{bill_id}]]></groupExpression>
+	</group>
+	<group name="pid">
+		<groupExpression><![CDATA[$F{pid}]]></groupExpression>
+	</group>
+	<group name="Brand">
+		<groupExpression><![CDATA[$F{Brand}]]></groupExpression>
+	</group>
+	<group name="pname">
+		<groupExpression><![CDATA[$F{pname}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="175" y="21" width="174" height="20" uuid="ec71379c-67ce-4b19-a83e-4e43b7af358e"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gayatri Electrical Shop]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="56" width="66" height="20" uuid="de9171c9-9eb1-4459-ada4-7af88e4e667c"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="56" width="100" height="20" uuid="9a4b5d25-c614-4182-bbeb-9a9315d37ecb"/>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="28" width="65" height="20" uuid="a98ed95f-5c65-4d72-9fa1-3143be608ace"/>
+				<text><![CDATA[Product Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="28" width="41" height="20" uuid="abb6ef44-5056-493c-8f22-b32aecee1dfa"/>
+				<text><![CDATA[Brand]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="28" width="80" height="20" uuid="03b088d4-ba51-4b15-b359-50b862322952"/>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="28" width="37" height="20" uuid="3e6b89d4-eed2-4a8b-ad40-ce907a3df2bd"/>
+				<text><![CDATA[price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="28" width="48" height="20" uuid="322e4371-b64d-42ea-af15-b5a2336d07c4"/>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="28" width="95" height="20" uuid="383f5313-bee8-48c9-b991-b674a81b8e56"/>
+				<text><![CDATA[Price after discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="28" width="65" height="20" uuid="6b4653bc-a45c-4b0c-adf6-f8fa23efb7a2"/>
+				<text><![CDATA[Total Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="522" y="28" width="33" height="20" uuid="a59db5b1-4b48-45e2-aabd-ffd267680d1d"/>
+				<text><![CDATA[Total Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="65" y="0" width="100" height="20" uuid="28a09dcf-98f5-49fa-9b1e-0f3a8b763afe"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="0" width="52" height="20" uuid="72527d6c-91e4-4f4b-99b7-d25cb4d604be"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="52" height="20" uuid="a201bc9b-8d8a-42d1-9ac3-a2be9d6601cd"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="52" height="20" uuid="67575aab-fd4c-4385-9dbb-cb86daea9fae"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="0" width="52" height="20" uuid="7a2296d4-52fd-46a7-93af-cd218d2b7553"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="0" width="52" height="20" uuid="364c6120-c85d-483e-b651-b7f48204b640"/>
+				<textFieldExpression><![CDATA[$F{Brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="1" width="65" height="20" uuid="0e0e0523-d14f-40ae-b8b6-033d79c04f09"/>
+				<textFieldExpression><![CDATA[$F{totalprice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="53" height="20" uuid="9b6ddb58-7952-4972-a195-4032a2b1081a"/>
+				<textFieldExpression><![CDATA[$F{pid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="433" y="4" width="33" height="20" uuid="d2752d6b-f719-47ac-b881-33542b1ad0b9"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<elementGroup>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="510" y="0" width="52" height="20" uuid="c78143ed-abfd-425c-b620-73d2925a8fff"/>
+					<textElement>
+						<font isStrikeThrough="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+			<line>
+				<reportElement x="0" y="3" width="574" height="1" uuid="d4560ba9-66c8-4b0d-9385-4245f56d698a"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
